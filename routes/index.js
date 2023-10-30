@@ -6,7 +6,7 @@ const s3 = new AWS.S3()
 /* GET home page. */
 router.get('/', async function(req, res, next) {
  let my_file = await s3.getObject({
-    Bucket: "",
+    Bucket: "cyclic-fluffy-rose-pumps-eu-north-1",
     Key: "content.json"
  }).promise()
  const result = JSON.parse(my_file.Body)?.content;
