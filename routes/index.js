@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 const AWS = require("aws-sdk");
 const s3 = new AWS.S3()
+let content = require("../content.json");
 
 /* GET home page. */
 router.get('/', async function(req, res, next) {
