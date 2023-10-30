@@ -24,6 +24,14 @@ router.get('/', async function(req, res, next) {
 
 router.post('path', async (req, res) => {
 const {content} = req.body;
+const contentObj = {
+  content: content
+}
+await s3.putObject({
+  Body: JSON.stringify(contentObj, null, 2),
+  Bucket: "cyclic-fluffy-rose-pumps-eu-north-1",
+  Key: "content.json" 
+}).promise()
 if(content == null) {
   res.json({
     status: "fail"
