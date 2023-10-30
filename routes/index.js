@@ -11,7 +11,7 @@ router.get('/', async function(req, res, next) {
     Key: "content.json"
  }).promise()
  const result = JSON.parse(my_file.Body)?.content;
- if(result == null) {
+ if(!my_file.Body) {
   res.json({
     status: "fail"
   })
